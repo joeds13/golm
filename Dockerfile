@@ -5,9 +5,6 @@ WORKDIR /opt/golm
 RUN make build-server
 
 FROM codesimple/elm:0.18 as build-ui
-RUN apt-get update && apt-get install -y \
-    automake \
- && rm -rf /var/lib/apt/lists/*
 COPY . /opt/golm
 WORKDIR /opt/golm
 RUN make build-ui
